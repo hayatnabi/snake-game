@@ -8,3 +8,27 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .glow-card {
+    box-shadow: 0 0 15px 4px rgba(0, 150, 255, 0.7);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .glow-card:hover {
+    box-shadow: 0 0 30px 8px rgba(0, 200, 255, 1);
+  }
+
+  @keyframes redGlowPulse {
+    0%, 100% {
+      box-shadow: 0 0 8px 2px rgba(255, 0, 0, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 20px 6px rgba(255, 0, 0, 1);
+    }
+  }
+  
+  .red-glow-blink {
+    animation: redGlowPulse 2s infinite;
+    border-radius: 4px;
+  }
+  

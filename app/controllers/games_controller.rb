@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
     @games = Game.all
-    @top_scores = Game.order(score: :desc).limit(5)
+    @top_scores = Game.order(score: :desc).limit(1)
   end
 
   # GET /games/1 or /games/1.json

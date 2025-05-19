@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gameMessage.innerText = "Press any arrow key to start";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         location.reload
+        restartButton.style.display = "none"; // 👈 hide at start or restart
         draw(); // Draws snake and food at game start initially.
     }
   
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gameOver = true;
         postScore(score);
         gameMessage.innerText += " — Game Over! Press Restart to play again.";
+        restartButton.style.display = "inline-block"; // 👈 show the button
         return;
       }
   

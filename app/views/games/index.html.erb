@@ -1,14 +1,41 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 5px; text-align: center;">
-  <h2>Snake Game</h2>
-  <canvas id="gameCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
-  <button id="restartButton" style="margin-top: 10px; padding: 8px 16px;">Restart</button>
-  <p id="scoreDisplay">Score: 0</p>
-  <p id="gameMessage" style="font-weight: bold; margin-top: 10px;"></p>
-  <h3>Top Scores</h3>
-  <ul id="leaderboard" style="list-style-type: none; padding: 0;">
-    <% @top_scores.each do |g| %>
-      <li><%= g.score %></li>
-    <% end %>
-  </ul>
+<div class="ui center aligned container" style="padding-top: 10px; padding-bottom: 10px; height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+  <!-- Background image div -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('/images/snake_game_character.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;  /* adjust opacity so card is readable */
+    z-index: 0;
+  "></div>
+  <div class="ui raised very padded text container" style="max-width: 400px;">
+    <div class="ui card centered" style="width: 100%;">
+      <div class="content">
+        <div class="header">Snake Game</div>
+      </div>
+      <div class="image" style="padding: 1em;">
+        <canvas id="gameCanvas" width="650" height="400" style="border:1px solid #000;"></canvas>
+      </div>
+      <div class="content">
+        <p id="scoreDisplay" class="ui header">Score: 0</p>
+        <p id="gameMessage" style="font-weight: bold; margin-top: 10px;"></p>
+        <button id="restartButton" class="ui red button red-glow-blink" style="margin-top: 5px; display: none;">
+          Restart
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="ui section divider"></div>
+  <div class="ui card glow-card" style="max-width: 400px; margin: 20px auto 0 auto; padding: 1em;">
+    <div class="content">
+      <h3 class="ui header">Top Scores</h3>
+      <ul id="leaderboard" class="ui list" style="max-height: 150px; overflow-y: auto; margin-top: 0;">
+        <% @top_scores.each do |g| %>
+          <li><%= g.score %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
   <%= javascript_include_tag "snake" %>
 </div>
