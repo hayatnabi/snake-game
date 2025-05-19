@@ -1,0 +1,5 @@
+<ul id="leaderboard" class="ui list" style="max-height: 150px; overflow-y: auto; margin-top: 0;">
+  <% @top_scores.each do |g| %>
+    <li><%= g.score %></li>
+  <% end %>
+</ul>

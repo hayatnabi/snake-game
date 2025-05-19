@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreDisplay.innerText = `Score: ${score}`;
         gameMessage.innerText = "Press any arrow key to start";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        location.reload
         restartButton.style.display = "none"; // 👈 hide at start or restart
         draw(); // Draws snake and food at game start initially.
     }
@@ -67,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         postScore(score);
         gameMessage.innerText += " — Game Over! Press Restart to play again.";
         restartButton.style.display = "inline-block"; // 👈 show the button
+        // location.reload();
         return;
       }
   
@@ -121,8 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify({ score: score })
       }).then(() => {
-        document.getElementById("gameMessage").innerText = `Game Over! Your score: ${score} — Press Restart to play again.`;
-        // location.reload // reloads the page over and over again...
+        document.getElementById("gameMessage").innerText = `Game Over! Your score: ${score} — Click Restart to play again.`;
+        // location.reload(); // reloads the page over and over again...
       });
     }
   

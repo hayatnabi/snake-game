@@ -30,11 +30,7 @@
   <div class="ui card glow-card" style="max-width: 400px; margin: 20px auto 0 auto; padding: 1em;">
     <div class="content">
       <h3 class="ui header">Top Scores</h3>
-      <ul id="leaderboard" class="ui list" style="max-height: 150px; overflow-y: auto; margin-top: 0;">
-        <% @top_scores.each do |g| %>
-          <li><%= g.score %></li>
-        <% end %>
-      </ul>
+      <%= render "games/top_scores", status: :unprocessed_entity %>
     </div>
   </div>
   <%= javascript_include_tag "snake" %>
