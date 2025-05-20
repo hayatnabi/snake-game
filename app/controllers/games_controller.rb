@@ -33,13 +33,6 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
-
-    # @game = Game.new(score: params[:score])
-    # if @game.save
-    #   head :ok
-    # else
-    #   head :unprocessable_entity
-    # end
   end
 
   # PATCH/PUT /games/1 or /games/1.json
