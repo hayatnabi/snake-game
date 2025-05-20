@@ -5,7 +5,6 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     @top_scores = Game.order(score: :desc).limit(1)
-    Game.create!(score: 0)
   end
 
   # GET /games/1 or /games/1.json
