@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const eatSound = new Audio("/audio/sound_eat_food.mp3");
+  const gameOverSound = new Audio("/audio/sound_game_over.mp3");
+
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     const scoreDisplay = document.getElementById("scoreDisplay");
@@ -65,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gameOver = true;
         postScore(score);
         gameMessage.innerText += " — Game Over!";
+        gameOverSound.play(); // ✅ play sound when game is over
         // Press Restart to play again.
         // restartButton.style.display = "inline-block"; // 👈 show the button
         location.reload();
@@ -74,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Eat food
       if (headX === food.x && headY === food.y) {
         score++;
+        eatSound.play(); // ✅ play sound when food is eaten
         scoreDisplay.innerText = `Score: ${score}`;
         food = {
           x: Math.floor(Math.random() * 19 + 1) * box,
