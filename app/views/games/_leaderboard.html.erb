@@ -1,4 +1,7 @@
 <ul id="leaderboard" class="ui list" style="max-height: 150px; overflow-y: auto; margin-top: 0;">
+  <% if @top_scores.empty? %>
+    <li><%= @top_scores.size %></li>
+  <% end %>
   <% @top_scores.each do |g| %>
     <li><%= g.score %></li>
   <% end %>

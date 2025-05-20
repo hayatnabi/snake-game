@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext("2d");
     const scoreDisplay = document.getElementById("scoreDisplay");
     const gameMessage = document.getElementById("gameMessage");
-    const restartButton = document.getElementById("restartButton");
+    // const restartButton = document.getElementById("restartButton");
   
     const box = 20;
     let score = 0;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreDisplay.innerText = `Score: ${score}`;
         gameMessage.innerText = "Press any arrow key to start";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        restartButton.style.display = "none"; // 👈 hide at start or restart
+        // restartButton.style.display = "none"; // 👈 hide at start or restart
         draw(); // Draws snake and food at game start initially.
     }
   
@@ -64,9 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
         gameRunning = false;
         gameOver = true;
         postScore(score);
-        gameMessage.innerText += " — Game Over! Press Restart to play again.";
-        restartButton.style.display = "inline-block"; // 👈 show the button
-        // location.reload();
+        gameMessage.innerText += " — Game Over!";
+        // Press Restart to play again.
+        // restartButton.style.display = "inline-block"; // 👈 show the button
+        location.reload();
         return;
       }
   
@@ -106,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     // Restart game button
-    restartButton.addEventListener("click", () => {
-      if (gameRunning) clearInterval(game);
-      initGame();
-    });
+    // restartButton.addEventListener("click", () => {
+    //   if (gameRunning) clearInterval(game);
+    //   initGame();
+    // });
   
     // Submit score to backend
     function postScore(score) {
